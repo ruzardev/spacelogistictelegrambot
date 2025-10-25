@@ -46,7 +46,7 @@ async def handle_webapp(message: types.Message):
 
 # === Webhook lifecycle ===
 async def on_startup(bot: Bot):
-    await bot.set_webhook(WEBHOOK_URL, allowed_updates=["message", "web_app_data"])
+    await bot.set_webhook(WEBHOOK_URL, allowed_updates=dp.resolve_used_update_types(),drop_pending_updates=True)
     logging.info(f"✅ Webhook установлен: {WEBHOOK_URL}")
 
 async def on_shutdown(bot: Bot):
