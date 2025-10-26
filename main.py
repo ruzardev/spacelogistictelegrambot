@@ -13,8 +13,8 @@ import uvicorn
 # -------------------------------
 # 🔧 Настройки и инициализация
 # -------------------------------
-BOT_TOKEN = os.getenv("API_TOKEN")
-FRONTEND_URL = os.getenv("WEBAPP_URL")
+BOT_TOKEN = "7324156410:AAEx7O4Y1NUnQOKAr1tOrZg-9jm1orlLb94"
+FRONTEND_URL = "https://web-app-telegram-six.vercel.app"
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
