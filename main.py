@@ -3,6 +3,7 @@ import hashlib
 import json
 import asyncio
 import logging
+import os
 from urllib.parse import parse_qsl
 from fastapi import FastAPI, Request, HTTPException
 from aiogram import Bot, Dispatcher, F, types
@@ -12,8 +13,8 @@ import uvicorn
 # -------------------------------
 # 🔧 Настройки и инициализация
 # -------------------------------
-BOT_TOKEN = "ВАШ_ТОКЕН"  # вставьте свой токен бота
-FRONTEND_URL = "https://your-frontend-url.vercel.app"
+BOT_TOKEN = os.getenv("API_TOKEN")
+FRONTEND_URL = os.getenv("WEBAPP_URL")
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
