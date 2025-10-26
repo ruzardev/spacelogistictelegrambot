@@ -2,11 +2,20 @@ import hmac, hashlib, json, asyncio
 from urllib.parse import parse_qsl
 from fastapi import FastAPI, Request, HTTPException
 from aiogram import Bot, Dispatcher, F, types
+from starlette.middleware.cors import CORSMiddleware
 
 BOT_TOKEN = "7324156410:AAEx7O4Y1NUnQOKAr1tOrZg-9jm1orlLb94"
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def verify_init_data(init_data: str):
     data = dict(parse_qsl(init_data, keep_blank_values=True))
